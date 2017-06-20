@@ -2,6 +2,8 @@
 
 This BOSH release and deployment manifest deploy a single VM with a golang application running on Windows 2012 R2.
 
+Another sample release is https://github.com/cloudfoundry-incubator/sample-windows-bosh-release
+
 ## Install
 
 ```
