@@ -1,0 +1,8 @@
+---
+name: simple-go-web-app
+
+dependencies:
+- go_windows
+
+files:
+- simple-go-web-app/**/*

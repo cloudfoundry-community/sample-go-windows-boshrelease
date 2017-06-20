@@ -1,0 +1,8 @@
+---
+name: simple-go-web-app
+
+packages: [simple-go-web-app]
+
+templates: {}
+
+properties: {}

@@ -1,0 +1,10 @@
+{
+  "processes": [
+    {
+      "name": "sample-go-web-app",
+      "executable": "C:\\var\\vcap\\packages\\sample-go-web-app\\sample-go-web-app.exe",
+      "args": [],
+      "env": {}
+    }
+  ]
+}
