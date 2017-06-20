@@ -1,15 +1,15 @@
 ---
-name: sample-go-web-app
+name: simple-go-web-app
 
 instance_groups:
-- name: sample-go-web-app
+- name: webapp
   azs: [z1, z2, z3]
   instances: 1
   vm_type: default
   stemcell: windows
   networks: [{name: default}]
   jobs:
-  - name: sample-go-web-app
+  - name: simple-go-web-app
     release: sample-go-windows
     properties: {}
 
