@@ -6,18 +6,18 @@ instance_groups:
   azs: [z1, z2, z3]
   instances: 1
   vm_type: default
-  stemcell: default
+  stemcell: windows
   networks: [{name: default}]
   jobs:
   - name: sample-go-windows
     release: sample-go-windows
     properties: {}
 
-variables: {}
+variables: []
 
 stemcells:
-- alias: default
-  os: ubuntu-trusty
+- alias: windows
+  os: windows2012R2
   version: latest
 
 update:
