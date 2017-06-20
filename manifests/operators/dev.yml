@@ -1,0 +1,6 @@
+---
+- type: replace
+  path: /releases/name=sample-go-windows
+  value:
+    name: sample-go-windows
+    version: latest

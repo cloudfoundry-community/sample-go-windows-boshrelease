@@ -1,0 +1,6 @@
+---
+blobstore:
+  provider: s3
+  options:
+    bucket_name: sample-go-windows-boshrelease
+final_name: sample-go-windows
