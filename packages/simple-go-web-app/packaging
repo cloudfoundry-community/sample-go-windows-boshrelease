@@ -2,7 +2,7 @@ try {
     $BOSH_INSTALL_TARGET = Resolve-Path $env:BOSH_INSTALL_TARGET
 
     $pkg_name="simple-go-web-app"
-    $env:GOROOT="C:\var\vcap\packages\go-windows\go"
+    $env:GOROOT="C:\var\vcap\packages\go_windows\go"
     $env:GOPATH="${PWD}\simple-go-web-app\vendor;${PWD}\simple-go-web-app"
     $env:PATH="${env:GOROOT}\bin;${env:PATH}"
 
