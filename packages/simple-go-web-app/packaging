@@ -3,10 +3,10 @@ try {
 
     $pkg_name="simple-go-web-app"
     $env:GOROOT="C:\var\vcap\packages\go_windows\go"
-    $env:GOPATH="${PWD}\simple-go-web-app\vendor;${PWD}\simple-go-web-app"
+    $env:GOPATH="${PWD}\simple-go-web-app;${PWD}\simple-go-web-app\src\github.com\cloudfoundry-community\${pkg_name}\vendor"
     $env:PATH="${env:GOROOT}\bin;${env:PATH}"
 
-    go build -o "${BOSH_INSTALL_TARGET}\${pkg_name}.exe" "${pkg_name}"
+    go build -o "${BOSH_INSTALL_TARGET}\${pkg_name}.exe" "github.com/cloudfoundry-community/${pkg_name}"
 
     if($LASTEXITCODE -ne 0)
     {

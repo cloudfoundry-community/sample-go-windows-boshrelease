@@ -1,0 +1,3 @@
+[submodule "src/simple-go-web-app/src/github.com/cloudfoundry-community/simple-go-web-app"]
+	path = src/simple-go-web-app/src/github.com/cloudfoundry-community/simple-go-web-app
+	url = https://github.com/cloudfoundry-community/simple-go-web-app
