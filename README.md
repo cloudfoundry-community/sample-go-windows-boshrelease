@@ -16,7 +16,7 @@ bosh2 upload-stemcell https://bosh.io/d/stemcells/bosh-aws-xen-hvm-windows2012R2
 git submodule update --init
 bosh2 create-release --force && \
   bosh2 -n upload-release && \
-  bosh2 deploy manifests/simple-go-web-app.yml.yml
+  bosh2 deploy manifests/simple-go-web-app.yml
 ```
 
 
