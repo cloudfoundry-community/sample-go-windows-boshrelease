@@ -1,0 +1,25 @@
+name: sample-go-windows
+version: 0.1.0
+commit_hash: ce589c8
+uncommitted_changes: false
+jobs:
+- name: simple-go-web-app
+  version: 170b297c40b26b7f03ccdc2c67bf173e337d8475
+  fingerprint: 170b297c40b26b7f03ccdc2c67bf173e337d8475
+  sha1: 8e36169dd1cec9f1f99506a7e49eb58ada8d5714
+packages:
+- name: go_windows
+  version: 298a6ebccfb40c489560e6f65acd444ccd96fd0c
+  fingerprint: 298a6ebccfb40c489560e6f65acd444ccd96fd0c
+  sha1: a7807b7dde198661eb1cd12bac5a756f61f25501
+  dependencies: []
+- name: simple-go-web-app
+  version: e1bfb211b2f9d13dc37341108c7c223d0bd3ee16
+  fingerprint: e1bfb211b2f9d13dc37341108c7c223d0bd3ee16
+  sha1: 13cb08d0a899e2c6cac98fb2cdcabaa91a4044e0
+  dependencies:
+  - go_windows
+license:
+  version: ac77a509d8b020148f8ce7b3ecce592f89c29c87
+  fingerprint: ac77a509d8b020148f8ce7b3ecce592f89c29c87
+  sha1: a1fce42c82673fc6736e973ff4b1cd61988c704d
