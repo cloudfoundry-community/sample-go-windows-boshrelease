@@ -84,7 +84,7 @@ You will need to either:
 
 Let's do the latter as the most interesting example but least invasive to any existing deployments.
 
-First, update the cloud-config with a new `vmtypes` entry named `default-windows`. The following will update `default-windows` if it already exists.
+First, update the cloud-config with a new `vmtypes` entry named `default-windows`. The following will update `default-windows` if it already exists, and set `compilation.vm_type` too.
 
 ```
 cat > cloud-config-vmtypes-default-windows.yml <<EOF
@@ -97,6 +97,11 @@ cat > cloud-config-vmtypes-default-windows.yml <<EOF
       machine_type: n1-standard-2
       root_disk_size_gb: 50
       root_disk_type: pd-ssd
+
+
+- type: replace
+  path: /compilation?/vm_type
+  value: default-windows
 EOF
 bosh2 update-cloud-config <(bosh2 cloud-config) -o cloud-config-vmtypes-default-windows.yml
 ```
