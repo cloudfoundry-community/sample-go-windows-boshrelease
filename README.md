@@ -10,8 +10,8 @@ Another sample release is https://github.com/cloudfoundry-incubator/sample-windo
 export BOSH_ENVIRONMENT=<bosh-alias>
 
 # pick a stemcell
-bosh2 upload-stemcell https://bosh.io/d/stemcells/bosh-aws-xen-hvm-windows2012R2-go_agent?v=1089.0
-bosh2 upload-stemcell https://bosh.io/d/stemcells/bosh-google-kvm-windows2012R2-go_agent?v=1089.0
+bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1093.0.0-build.1-google-aws-windows2016-go_agent.tgz
+bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1093.0.0-build.1-google-kvm-windows2016-go_agent.tgz
 
 git submodule update --init
 bosh2 create-release --force && \
