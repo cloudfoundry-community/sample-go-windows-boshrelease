@@ -29,13 +29,23 @@ Note: it can take over 10 minutes to create Windows VMs/compile the initial pack
 01:11:14 | Creating missing vms: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (00:10:45)
 ```
 
-And starting the instance took 10+ mins as well. Not sure why, since the VM was already running:
+And starting the instance took 10+ mins as well. Not sure why, since the VM was already running. I think its probably failing somehow.
 
 ```
 01:21:59 | Updating instance webapp: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (canary) (00:13:02)
 ```
 
-### Debugging
+At the end, the successfully deployed instance is actually not so successful:
+
+```
+$ bosh2 instances
+Instance                                     Process State       AZ  IPs
+webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7  unresponsive agent  z1  10.0.0.10
+```
+
+## Debugging deployment
+
+### Disk size too small
 
 During initial deploy you might get an error about requested disk sizes:
 
@@ -90,6 +100,41 @@ Finally, deploy using a provided operator patch file which uses the `vm_type: de
 ```
 bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml \
   -o manifests/operator/vmtype-default-windows.yml
+```
+
+### Running instance logs
+
+Debugging Windows VMs isn't simple. The simplest initial step is to ask BOSH to fetch the logs from the BOSH jobs:
+
+```
+bosh2 logs -d simple-go-web-app
+tar xfz ../simple-go-web-app-*.tgz
+tail -n 200 simple-go-web-app/simple-go-web-app/*
+```
+
+The resulting logs might look like:
+
+```
+$ tail -n 200 simple-go-web-app/simple-go-web-app/*
+==> simple-go-web-app/simple-go-web-app/job-service-wrapper.err.log <==
+
+==> simple-go-web-app/simple-go-web-app/job-service-wrapper.out.log <==
+[martini] listening on :3000 (development)
+
+==> simple-go-web-app/simple-go-web-app/job-service-wrapper.wrapper.log <==
+2017-07-17 01:34:23,541 DEBUG - Starting ServiceWrapper in the CLI mode
+2017-07-17 01:34:24,745 INFO  - Installing the service with id 'simple-go-web-app'
+2017-07-17 01:34:24,834 DEBUG - Completed. Exit code is 0
+2017-07-17 01:34:42,954 INFO  - Starting ServiceWrapper in the service mode
+2017-07-17 01:34:43,203 INFO  - Starting C:\var\vcap\bosh\bin\pipe.exe  C:\var\vcap\packages\simple-go-web-app\simple-go-web-app.exe
+2017-07-17 01:34:43,212 INFO  - Starting C:\var\vcap\bosh\bin\pipe.exe  C:\var\vcap\packages\simple-go-web-app\simple-go-web-app.exe
+2017-07-17 01:34:43,360 INFO  - Started process 1948
+2017-07-17 01:34:43,398 DEBUG - Forwarding logs of the process System.Diagnostics.Process (pipe) to winsw.SizeBasedRollingLogAppender
+
+==> simple-go-web-app/simple-go-web-app/pipe.log <==
+2017/07/17 01:34:43 pipe: configuration: &{ServiceName:simple-go-web-app LogDir:\var\vcap\sys\log/simple-go-web-app/simple-go-web-app NotifyHTTP:http://localhost:2825 SyslogHost: SyslogPort: SyslogTransport: MachineIP:10.0.0.10}
+2017/07/17 01:34:43 syslog: configuration missing or incomplete
+2017/07/17 01:34:43 pipe: starting
 ```
 
 ## Development
