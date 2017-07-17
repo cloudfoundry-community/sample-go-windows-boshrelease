@@ -19,6 +19,8 @@ bosh2 create-release --force && \
   bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml
 ```
 
+### Warning it can be slow
+
 Note: it can take over 10 minutes to create Windows VMs/compile the initial package (`go_windows`), so patience is a virtue. For example, on GCP I witnessed:
 
 ```
@@ -27,7 +29,13 @@ Note: it can take over 10 minutes to create Windows VMs/compile the initial pack
 01:11:14 | Creating missing vms: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (00:10:45)
 ```
 
-## Debugging
+And starting the instance took 10+ mins as well. Not sure why, since the VM was already running:
+
+```
+01:21:59 | Updating instance webapp: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (canary) (00:13:02)
+```
+
+### Debugging
 
 During initial deploy you might get an error about requested disk sizes:
 
