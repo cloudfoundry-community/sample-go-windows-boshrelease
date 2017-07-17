@@ -43,6 +43,15 @@ Instance                                     Process State       AZ  IPs
 webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7  unresponsive agent  z1  10.0.0.10
 ```
 
+### How it should work
+
+So, if everything works, then there should be a little HTTP web app listening on port 3000. You should be able to curl to it; but this is failing for me at the moment.
+
+```
+$ curl 10.0.0.10:3000
+curl: (7) Failed to connect to 10.0.0.10 port 3000: Connection timed out
+```
+
 ## Debugging deployment
 
 ### Disk size too small
