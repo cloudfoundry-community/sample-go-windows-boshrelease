@@ -29,10 +29,6 @@ update:
 
 releases:
 - name: sample-go-windows
-  version: latest
-  # In future, for the benefit of users, please replace with final release URL/version/sha1:
-  #
-  # For example:
-  # version: 0.1.0
-  # url: https://github.com/cloudfoundry-community/sample-go-web-app-boshrelease/releases/download/v0.1.0/sample-go-web-app-0.1.0.tgz
-  # sha1: d6b67ccc255c4d7019702573d829a7ff29fa0dc8
+  version: 0.1.0
+  url: https://github.com/cloudfoundry-community/sample-go-windows-boshrelease/releases/download/v0.1.0/sample-go-windows-0.1.0.tgz
+  sha1: 69d035d1079d6bfc1387039e49510508c2fe32cf

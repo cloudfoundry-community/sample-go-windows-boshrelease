@@ -13,10 +13,7 @@ export BOSH_ENVIRONMENT=<bosh-alias>
 bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1093.0.0-build.1-google-aws-windows2016-go_agent.tgz
 bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1093.0.0-build.1-google-kvm-windows2016-go_agent.tgz
 
-git submodule update --init
-bosh2 create-release --force && \
-  bosh2 -n upload-release && \
-  bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml
+bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml
 ```
 
 ### Warning it can be slow
@@ -151,6 +148,7 @@ $ tail -n 200 simple-go-web-app/simple-go-web-app/*
 As a developer of this release, create new releases, upload and deploy them:
 
 ```
+git submodule update --init
 bosh2 create-release --force && \
   bosh2 -n upload-release && \
   bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml.yml \
