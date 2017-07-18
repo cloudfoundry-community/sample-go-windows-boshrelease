@@ -11,7 +11,8 @@ instance_groups:
   jobs:
   - name: simple-go-web-app
     release: sample-go-windows
-    properties: {}
+    properties:
+      port: 3000
 
 variables: []
 

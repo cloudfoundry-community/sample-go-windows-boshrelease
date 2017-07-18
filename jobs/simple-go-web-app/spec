@@ -5,4 +5,7 @@ packages: [simple-go-web-app]
 
 templates: {}
 
-properties: {}
+properties:
+  port:
+    description: Binding port
+    default: 3000

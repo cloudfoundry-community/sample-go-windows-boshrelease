@@ -4,7 +4,9 @@
       "name": "simple-go-web-app",
       "executable": "C:\\var\\vcap\\packages\\simple-go-web-app\\simple-go-web-app.exe",
       "args": [],
-      "env": {}
+      "env": {
+        "PORT": "<%= p('port') %>"
+      }
     }
   ]
 }
