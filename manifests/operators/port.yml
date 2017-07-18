@@ -1,0 +1,4 @@
+---
+- type: replace
+  path: /instance_groups/name=webapp/jobs/name=simple-go-web-app/properties/port
+  value: ((port))
