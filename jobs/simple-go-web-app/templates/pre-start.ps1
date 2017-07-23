@@ -1,6 +1,3 @@
-New-NetFirewallRule `
-  -DisplayName "simple-go-web-app" `
+New-NetFirewallRule -LocalPort <%= p("port") %> -Protocol TCP `
   -Direction Inbound `
-  -Enabled True `
-  –Protocol TCP `
-  -LocalPort <%= p("port") %>
+  -Name simple-go-web-app -DisplayName simple-go-web-app
