@@ -3,7 +3,8 @@ name: simple-go-web-app
 
 packages: [simple-go-web-app]
 
-templates: {}
+templates:
+  pre-start.ps1: bin/pre-start.ps1
 
 properties:
   port:
