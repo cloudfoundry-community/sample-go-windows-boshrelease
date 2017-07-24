@@ -4,7 +4,7 @@ This BOSH release and deployment manifest deploy a single VM with a golang appli
 
 Another sample release is https://github.com/cloudfoundry-incubator/sample-windows-bosh-release
 
-## Deplog
+## Deploy
 
 ```
 export BOSH_ENVIRONMENT=<bosh-alias>
@@ -41,6 +41,10 @@ Hello World
 ```
 
 ## Debugging deployment
+
+Some of the debugging tips I learned when writing this BOSH release are documented at:
+
+* https://www.starkandwayne.com/blog/debugging-a-windows-bosh-vm-and-its-firewall-rules/
 
 ### Disk size too small
 
