@@ -9,8 +9,10 @@ Another sample release is https://github.com/cloudfoundry-incubator/sample-windo
 ```
 export BOSH_ENVIRONMENT=<bosh-alias>
 
-# pick a stemcell
+# pick a `windows2016` stemcell for your infrastructure, e.g.
+# Google Compute
 bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1200.5.0-build.1-google-kvm-windows2016-go_agent.tgz
+# AWS EC2
 bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1200.5.0-build.1-google-aws-windows2016-go_agent.tgz
 
 bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml
