@@ -30,27 +30,14 @@ Note: it can take over 10 minutes to create Windows VMs/compile the initial pack
 01:11:14 | Creating missing vms: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (00:10:45)
 ```
 
-And starting the instance took 10+ mins as well. Not sure why, since the VM was already running. I think its probably failing somehow.
-
-```
-01:21:59 | Updating instance webapp: webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7 (0) (canary) (00:13:02)
-```
-
-At the end, the successfully deployed instance is actually not so successful:
-
-```
-$ bosh2 instances
-Instance                                     Process State       AZ  IPs
-webapp/0219d77d-9711-4ce2-ab16-ab05435dc5e7  unresponsive agent  z1  10.0.0.10
-```
 
 ### How it should work
 
-So, if everything works, then there should be a little HTTP web app listening on port 3000. You should be able to curl to it; but this is failing for me at the moment.
+The deployment will run a little HTTP web app listening on port 3000.
 
 ```
 $ curl 10.0.0.10:3000
-curl: (7) Failed to connect to 10.0.0.10 port 3000: Connection timed out
+Hello World
 ```
 
 ## Debugging deployment
@@ -124,7 +111,7 @@ Debugging Windows VMs isn't simple. The simplest initial step is to ask BOSH to 
 ```
 bosh2 logs -d simple-go-web-app
 tar xfz ../simple-go-web-app-*.tgz
-tail -n 200 simple-go-web-app/simple-go-web-app/*
+tail -n 200 simple-go-web-app/simple-go-web-app/* simple-go-web-app/*
 ```
 
 The resulting logs might look like:
