@@ -18,7 +18,7 @@ variables: []
 
 stemcells:
 - alias: windows
-  os: windows2016
+  os: windows2012R2
   version: latest
 
 update:
