@@ -1,6 +1,6 @@
 # Sample BOSH release for Golang on Windows
 
-This BOSH release and deployment manifest deploy a single VM with a golang application running on Windows 2016.
+This BOSH release and deployment manifest deploy a single VM with a golang application running on Windows 2012R2.
 
 Another sample release is https://github.com/cloudfoundry-incubator/sample-windows-bosh-release
 
@@ -9,16 +9,18 @@ Another sample release is https://github.com/cloudfoundry-incubator/sample-windo
 ```
 export BOSH_ENVIRONMENT=<bosh-alias>
 
-# pick a `windows2016` stemcell for your infrastructure, e.g.
+# pick a `windows2012R2` stemcell for your infrastructure, e.g.
 # Google Compute
-bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1200.5.0-build.1-google-kvm-windows2016-go_agent.tgz
+bosh2 upload-stemcell https://s3.us-east-2.amazonaws.com/bosh-windows-stemcells-production/light-bosh-stemcell-1200.0-google-kvm-windows2012R2-go_agent.tgz
 # AWS EC2
-bosh2 upload-stemcell https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/light-bosh-stemcell-1200.5.0-build.1-google-aws-windows2016-go_agent.tgz
+bosh2 upload-stemcell https://s3.us-east-2.amazonaws.com/bosh-windows-stemcells-production/light-bosh-stemcell-1200.0-aws-xen-hvm-windows2012R2-go_agent.tgz
+# Azure
+bosh2 upload-stemcell https://s3.us-east-2.amazonaws.com/bosh-windows-stemcells-production/light-bosh-stemcell-1200.0-azure-hyperv-windows2012R2-go_agent.tgz
 
 bosh2 -d simple-go-web-app deploy manifests/simple-go-web-app.yml
 ```
 
-Note: You can find newer `windows2016` stemcells at the bottom of https://s3.amazonaws.com/bosh-windows-stemcells-release-candidates/
+Note: You can find newer `windows2012R2` stemcells at https://bosh.io/stemcells
 
 ### Warning it can be slow
 
